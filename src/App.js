@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import "./App.css";
+
 const App = () => {
   const [clips, setClips] = useState([]); // State to store clips for the current layer
   const [loading, setLoading] = useState(true); // Loading state
@@ -106,22 +108,20 @@ const App = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Layer {currentLayer} Clips</h1>
+      <h1 className="Titel">What will you choose {currentLayer}</h1>
 
       {loading ? (
         <p>Loading clips...</p>
       ) : (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="choice_wrapper">
           {clips.length > 0 ? (
             clips
               .filter((clip) => customNames[clip.id] || clip.name?.value) // Filter out empty or unnamed clips
               .map((clip, index) => (
                 <button
                   key={clip.id}
-                  className={`p-4 text-white rounded-lg shadow focus:outline-none ${
+                  className={`choice ${
                     selectedClips[currentLayer] === clip.id
-                      ? "bg-green-500 hover:bg-green-600"
-                      : "bg-blue-500 hover:bg-blue-600"
                   }`}
                   onClick={() => handleClipClick(clip.id, index + 1)} // Trigger the clip on click
                 >
