@@ -11,9 +11,9 @@ const App = () => {
 
   // Custom names for clips, keyed by their index or ID
   const customNames = {
-    0: "Clip A",
-    1: "Clip B",
-    2: "Clip C",
+    0: "Keuze 1",
+    1: "Keuze 2",
+    2: "Keuze 3",
     // Add more mappings as needed
   };
 
@@ -52,21 +52,6 @@ const App = () => {
   useEffect(() => {
     fetchClipsForLayer(currentLayer);
   }, [currentLayer]);
-
-  // Function to check if a slot is empty (no clip connected)
-  const isSlotEmpty = (layerIndex, slotIndex) => {
-    return fetch(
-      `http://localhost:8080/api/v1/composition/layers/${layerIndex}/clips/${slotIndex}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        return !data.clip || !data.clip.id; // If no clip is connected, it's empty
-      })
-      .catch((error) => {
-        console.error("Error checking slot:", error);
-        return false;
-      });
-  };
 
   // Function to handle the click of a clip button
   const handleClipClick = async (clipId, clipIndex) => {
@@ -107,7 +92,7 @@ const App = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="wrapper">
       <h1 className="Titel">What will you choose {currentLayer}</h1>
 
       {loading ? (

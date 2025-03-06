@@ -5,6 +5,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "arial";
+  src: url("./arial.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   background-color: #fff7e3;
 }
@@ -12,12 +19,28 @@ body {
 h1 {
   color: #743918;
   font-family: "HidayatullahDemo";
+  font-size: 5vw;
 }
 
-p {
-  font-family: "Arial";
+.wrapper {
+  margin-top: 10vh;
 }
 
 .Titel {
+  justify-self: center;
+  margin-bottom: 10vh;
+}
+
+.choice {
+  background-color: #941b1e;
+  border-color: transparent;
+  font-size: 7vw;
+  padding: 7vw 5vw;
+  margin: 3vw;
+  color: #fff7e3;
+  font-family: "arial";
+}
+
+.choice_wrapper {
   justify-self: center;
 }
